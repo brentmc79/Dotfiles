@@ -25,6 +25,9 @@ call plug#end()
 autocmd VimResized * wincmd =
 autocmd VimEnter */workspace/* NERDTree| wincomd p
 
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
 " Turn on syntax highlighting
 syntax on
 
@@ -33,7 +36,6 @@ set directory=$HOME/.vim/tmp//
 
 " Automatically wrap text that extends beyond the screen width
 set wrap
-
 
 " Convert tabs to spaces
 set expandtab
