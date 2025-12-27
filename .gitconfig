@@ -2,3 +2,5 @@
 [user]
 	name = Brent Collier
 	email = brentmc79@gmail.com
+[alias]
+	co = checkout
