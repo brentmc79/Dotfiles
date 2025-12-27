@@ -1,4 +1,15 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# --- Homebrew ---
+# Check for Homebrew in multiple locations and initialize
+if [ -x "/opt/homebrew/bin/brew" ]; then
+  # Apple Silicon Macs
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -x "/usr/local/bin/brew" ]; then
+  # Intel Macs
+  eval "$(/usr/local/bin/brew shellenv)"
+elif [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  # Linux
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
