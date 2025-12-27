@@ -5,6 +5,7 @@ brew "libyaml"
 brew "neovim"
 brew "postgresql@14", restart_service: :changed
 brew "the_silver_searcher"
+brew "zsh"
 cask "iterm2"
 cask "kitty"
 vscode "vscodevim.vim"

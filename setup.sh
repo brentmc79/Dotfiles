@@ -39,8 +39,11 @@ if grep -q "brew \"zsh\"" Brewfile; then
       current_shell=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
       sudo dscl . -change /Users/$USER UserShell "$current_shell" /bin/zsh
     elif [[ "$(uname)" == "Linux" ]]; then
+      echo $(which zsh) | sudo tee -a /etc/shells
+      echo "Zsh binary location: $(which zsh)"
       # Linux (e.g., Fedora)
-      chsh -s "$(which zsh)"
+      #sudo lchsh $USER
+      chsh -s $(which zsh)
     else
       echo "Unsupported OS for automatic Zsh default shell setting."
     fi

@@ -7,6 +7,12 @@ nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>d :Ag<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
