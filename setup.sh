@@ -47,12 +47,13 @@ if grep -q "brew \"zsh\"" Brewfile; then
   else
     echo "Zsh is already the default shell."
   fi
-    else
-      echo "Zsh not found in Brewfile. Skipping default shell setting."
-    fi
-    echo "Please restart your terminal or log out and back in for the default shell change to take effect."
+else
+  echo "Zsh not found in Brewfile. Skipping default shell setting."
+fi
+echo "Please restart your terminal or log out and back in for the default shell change to take effect."
 
-# --- Symlink Dotfiles ---echo "Symlinking dotfiles..."
+# --- Symlink Dotfiles ---
+echo "Symlinking dotfiles..."
 for file in .*; do
   case $file in
     .|..|.git|.gitignore)
