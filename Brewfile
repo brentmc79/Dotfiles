@@ -1,0 +1,12 @@
+brew "asdf"
+brew "gemini-cli"
+brew "go"
+brew "libyaml"
+brew "neovim"
+brew "postgresql@14", restart_service: :changed
+brew "the_silver_searcher"
+cask "iterm2"
+cask "kitty"
+vscode "vscodevim.vim"
+go "golang.org/x/tools/gopls"
+go "honnef.co/go/tools/cmd/staticcheck"
