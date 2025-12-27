@@ -4,3 +4,5 @@
 	email = brentmc79@gmail.com
 [alias]
 	co = checkout
+[core]
+	editor = vim
