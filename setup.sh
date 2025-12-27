@@ -29,4 +29,17 @@ else
   echo "Brewfile not found. Skipping bundle installation."
 fi
 
+# --- Symlink Dotfiles ---
+echo "Symlinking dotfiles..."
+for file in .*; do
+  case $file in
+    .|..|.git|.gitignore)
+      continue
+      ;;
+    *)
+      ln -sfv "$(pwd)/$file" "$HOME/$file"
+      ;;
+  esac
+done
+
 echo "Setup complete!"
